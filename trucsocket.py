@@ -47,19 +47,10 @@ while True:
         print("La réponse du serveur a pris trop de temps. Fermeture de la communication.")
         break
 
-    if not data:
-        print("La connexion avec le serveur a été interrompue.")
-        break
-
-    if data == "Incorrect":
-        print("Réponse incorrecte. Fermeture de la communication.")
-        break
-
     print("Réponse du serveur:", data)
 
     # Vérification si la communication doit être terminée
-    if data == "Fin de la communication.":
-        break
+    
 
 # Fermeture de la connexion
 client_socket.close()
