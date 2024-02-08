@@ -23,7 +23,7 @@ except ConnectionRefusedError:
 while True:
     # Réception des données du serveur
     try:
-        data = client_socket.recv(1024).decode()
+      data = client_socket.recv(1024).decode()
     except socket.timeout:
         print("La réponse du serveur a pris trop de temps. Fermeture de la communication.")
         break
