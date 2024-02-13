@@ -9,8 +9,8 @@ répondez à 100 calculs pour forcer le serveur
 
 
 
-server_ip = '172.18.193.60'  
-server_port = 2000  
+server_ip = '172.18.194.48'  
+server_port = 1234  
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Connexion au serveur
