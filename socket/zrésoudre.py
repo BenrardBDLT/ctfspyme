@@ -9,7 +9,7 @@ répondez à 100 calculs pour forcer le serveur
 
 
 
-server_ip = 'http://bernaton.pythonanywhere.com/'  
+server_ip = '172.18.195.3'  
 server_port = 1234  
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
