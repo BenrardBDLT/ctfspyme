@@ -1,71 +1,99 @@
+
 import socket
-import threading
-import time
 import random
+import threading
+communication_count = 0
+def calcul(com):
+    a = random.randint(1, 4)
+    calcul = ''
+    nb=a + com
+    for i in range(nb):
+        op = random.choice(['*', '+', '-'])
+        valeur = str(random.randint(1, 9))
+        calcul = calcul + valeur + op
+    valeur = str(random.randint(1, 9))
+    calcul = calcul + valeur
 
-def handle_client(client_socket):
-    correct_answers = 0
-    time_limit = 10
-    difficulty_range = (1, 10)
+    resultat_calcul = eval(calcul)
+    print('le calcul envoyé est : ', calcul)
+    print('le résultat attendu est : ',resultat_calcul)
+    return (calcul, resultat_calcul)
 
-    while correct_answers < 100:
-        num1 = random.randint(*difficulty_range)
-        num2 = random.randint(*difficulty_range)
-        operator = random.choice(['+', '-', '*'])
-        if operator == '+':
-            expected_result = num1 + num2
-        elif operator == '-':
-            expected_result = num1 - num2
-        else:
-            expected_result = num1 * num2
+def handle_client(client_socket, addr):
+    fin =False
+    print("Connexion établie avec", addr)
 
-        client_socket.send(f"Calculez {num1} {operator} {num2} en {time_limit} secondes: ".encode())
+    client_socket.settimeout(10)  # Définir un délai de 10 secondes pour recevoir les réponses du client
 
-        client_socket.settimeout(time_limit)
+    communication_count = 0  # Compteur de communications avec le client
+    calcul_str, resultat_calcul = calcul(communication_count)
+   
+    #client_socket.send(("\n \nRépondez à ces 100 calculs pour tenter de récupérer le flag. Répondez en moins de 10s pour chaque calcul\n************************************************************\n"+calcul_str).encode())
+    client_socket.send(calcul_str.encode())
+    response = client_socket.recv(1024).decode()
+    if not response:
+       
+        fin=True
+    print("Réponse reçue du client:", response)
+
+    if response.lower() == "exit":
+        client_socket.close()
+        fin=True
+    if response == str(resultat_calcul):
+        communication_count += 1
+        client_socket.send("Correct!".encode())
+    else:
+        client_socket.send("Incorrect!".encode())
+        client_socket.close()
+        fin =True    
+   
+    while True:
+        if fin==True:
+            break
         try:
-            response = client_socket.recv(1024).decode().strip()
-            print(response)
-        except socket.timeout:
-            print("Temps écoulé")
-            client_socket.send(f"Temps écoulé. Veuillez répondre dans le temps imparti.".encode())
-            correct_answers = 0
-            return
+            calcul_str, resultat_calcul = calcul(communication_count)
+            client_socket.send(calcul_str.encode())
+           
+            response = client_socket.recv(1024).decode()
+            if not response:
+               
+                break
+            print("Réponse reçue du client:", response)
 
-        try:
-            if int(response) == expected_result:
-                correct_answers += 1
-                print(correct_answers)
-                client_socket.send("Bonne réponse. Calculez le prochain.".encode())
-                difficulty_range = (difficulty_range[0] * 2, difficulty_range[1] * 2)
-                time_limit = max(1, time_limit // 1.2)
-            else:
-                client_socket.send("Mauvaise réponse. Connexion fermée.".encode())
+            if response.lower() == "exit":
                 client_socket.close()
-                return
-        except ValueError:
-            client_socket.send("Erreur de calcul. Veuillez répondre avec un nombre valide.".encode())
-            print(("Erreur de calcul. Veuillez répondre avec un nombre valide.".encode()))
-            
-            return
+                break  # Sortir de la boucle et fermer la communication avec le client
 
-    client_socket.send("FLAG: jaimelescalculs.".encode())
-    client_socket.close()
+            if response == str(resultat_calcul):
+                communication_count += 1  # Incrémenter le compteur de communications
+                client_socket.send("Correct!".encode())
+            else:
+                client_socket.send("Incorrect!".encode())
+                break  # Sortir de la boucle et fermer la communication avec le client
+            print("Nombre de communications avec le client", addr, ":", communication_count)
+            if communication_count == 100:
+                client_socket.send("Flag: BiEn_JoU3 ".encode())
+                client_socket.close()
+               
+        except socket.timeout:
+            print("Le client ne répond pas dans les 10 secondes.")
+            client_socket.send("Trop lent !".encode())
+            break  # Sortir de la boucle et fermer la communication avec le client
+
+    client_socket.send("Déconnexion...".encode())
+    return
 
 def start_server():
-    host = socket.gethostbyname(socket.gethostname())
-    port = 1234
-
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_socket.bind((host, port))
+    host= socket.gethostbyname(socket.gethostname())
+    server_socket.bind((host, 2000))
+    print(host)
     server_socket.listen(5)
-
-    print(f"Serveur en écoute sur {host}:{port}...")
+    print("Serveur en attente de connexions...")
 
     while True:
-        client_socket, address = server_socket.accept()
-        print(f"Connexion acceptée depuis {address[0]}:{address[1]}")
-
-        client_thread = threading.Thread(target=handle_client, args=(client_socket,))
+        client_socket, addr = server_socket.accept()
+        client_thread = threading.Thread(target=handle_client, args=(client_socket, addr))
         client_thread.start()
 
 start_server()
