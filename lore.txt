@@ -12,3 +12,12 @@ trouver le pc et hop rediriger vers la page web de votre ami
 
 La fin: grand méchant = monsieur marchand, on le démasque et appelons la police en donnant ses informations (récupérée dans une ultime épreuve) et on retrouve robin en bon état 
 et tout est bien qui fini bien.
+
+
+
+
+
+permiere page cliqué bureau appartement cambriolé, on peut se rapprocher du pc avec post-it à coté du pc, login mdp codé en césar ?
+deuxieme page (cliqué ordi) login 
+3 eme page, site des epreuves 
+1 flag débloqué = apparition une info sur le groupe de hacker 
