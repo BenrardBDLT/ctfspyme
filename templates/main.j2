@@ -1,80 +1,87 @@
 <!DOCTYPE html>
-
-
 <html>
-    <link rel="stylesheet" href="static/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 <head>
-    <title>Spy Me</title>
-    <style>
-        
-    </style>
+  <title>Site avec Menu Dépliant</title>
+  <style>
+    body {
+      background-color: black;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+
+    .menu {
+        width: 0;
+        background-color: #333;
+        color: white;
+        transition: width 0.3s;
+        overflow: hidden;
+        /* Ajoutez la propriété suivante */
+        right: 0;
+        left: auto;
+        }
+
+    .menu.open {
+        width: 200px;
+        /* Ajoutez la propriété suivante */
+        right: auto;
+        left: 0;
+        }
+
+    .content {
+      flex-grow: 1;
+      color: white;
+      padding: 20px;
+    }
+
+    .hamburger {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 999;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 30px;
+      height: 4px;
+      background-color: white;
+      margin-bottom: 5px;
+    }
+  </style>
 </head>
 <body>
-    <div class="navbar">
-        <ul>
-            <li><a href="#">Accueil</a></li>
-            <li><a href="#">À propos</a></li>
-    
-            <li><a href="#">Contact</a></li>
-        </ul>
+  <div class="container">
+    <div class="menu" id="menu">
+      <ul>
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#">À propos</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
     </div>
-    <div class="container">
-
-        <div class="police1">Spy Me</div>
-        <div class="question1">
-            <p>Epreuve 1</p> 
-            <a href="epreuve1">Acceder à l'épreuve</a>
-        </div>
-
-        
-        <div class="question2">
-            <p>Epreuve 2</p> 
-        </div>
-
-        <div class="question3">
-            <p>Epreuve 3</p> 
-        </div>
-
-        
-        <div class="question4">
-            <p>Epreuve 4</p> 
-        </div>
-
-
-    
-
-
-
-
-
-
-        <form id="answerForm">
-            <label for="answer">Votre réponse :</label>
-            <br>
-            <input type="text" id="answer" name="answer" required>
-            <br>
-            <button type="submit">Valider</button>
-        </form>
-        <p id="result"></p>
-        <p>Bonne chance !</p>
+    <div class="content">
+      <h1>Site avec Menu Dépliant</h1>
+      <p>Bienvenue sur notre site !</p>
     </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
 
-    <script>
-        document.getElementById("answerForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-
-            var answer = document.getElementById("answer").value.trim();
-            var result = document.getElementById("result");
-
-            if (answer.toLowerCase() === "espace") {
-                result.innerHTML = "Bonne réponse ! Vous êtes un pas plus proche de la victoire.";
-                result.style.color = "green";
-            } else {
-                result.innerHTML = "Mauvaise réponse. C'est non.";
-                result.style.color = "red";
-            }
-        });
-    </script>
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById("menu");
+      menu.classList.toggle("open");
+    }
+  </script>
 </body>
 </html>

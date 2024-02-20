@@ -10,7 +10,7 @@ def con():
         if username == 'robin' and password == 'start':
             return redirect('/main')
         else:
-            return redirect('/')
+            return redirect('/')    
     return render_template('connexion.j2')
 
 @app.route('/main')
