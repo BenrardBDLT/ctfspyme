@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    
+}
+body{
+    font-family: 'Lucida Sans Unicode';
+    background-color: rgb(44, 44, 44);
+}
+
+header {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(26, 26, 26);
+    background-size: cover;
+
+    display: flex; /* Ajout de flexbox */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    
+    
+}
+h1{
+    color: white;
+    padding: 10px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    
+}
+
+/*la div de la navbar*/
+.navbar{
+    position: absolute;
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: center;
+    
+}
+/*tout en blanc */
+.navbar a{
+    color: white;
+    }
+
+.navbar .logo{
+    font-size: 3em;
+    font-weight: bold;
+
+}
+
+
+/*position de la nav bar avec la liste + animation des liens*/
+.navbar .nav-links ul{
+    display: flex;
+    font-size: 2em;
+}
+
+.navbar .nav-links ul li {
+    margin: 25px 0;
+    font-size: 1.5em;
+    transition: transform 1s ease, color 0.3s ease;
+}
+
+.navbar .nav-links ul li:hover {
+    transform: translateY(-5px); /* Bouger de haut en bas */
+    
+}
+
+.navbar .logo-git{
+    display: block;
+    position: absolute;
+    top: 65px;
+    right: 150px;
+    width: 35px;
+}
+
+/*ici c'est tou ce qui concerne le bouton du menu*/
+.navbar .menu-hamburger {
+    display: block;
+    position: absolute;
+    top: 65px;
+    right: 50px;
+    width:35px;
+    transition: transform 0.7s ease;
+}
+
+
+
+
+/* ici c'est ce qui faisait que quand c'était pour mobile ça changeait la navbar*/
+/* logo café à gauche*/
+.navbar .logo{
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+
+/*ici c'est le deucième "m"nu" d'affivher quand on appuie sur le petit menu*/
+.nav-links {
+    top: -1500%; /* Placer la fenêtre en dehors de la vue en haut */
+    left: 0;
+    position: absolute;
+    background-color: rgba(34, 34, 34, 0.521);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    transition: top 1.1s ease; /* Utiliser la propriété top pour l'animation */
+}
+
+.nav-links.active {
+    top: 0; /* Déplacer la fenêtre vers le haut */
+}
+    .menu-hamburger.active {
+        transform: rotate(180deg); /* Rotation de 90 degrés */
+        transition: transform 0.5s ease;
+    }
+
+.nav-links.mobile-menu{
+     margin-left: 0;
+
+    }
+
+.nav-links ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.navbar .nav-links ul li {
+    margin: 25px 0;
+    font-size: 1.5em;
+    }
+
