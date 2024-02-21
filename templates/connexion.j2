@@ -31,12 +31,13 @@
         }
         .form-container {
             max-width: 400px;
-            padding: 20px;
+            padding: 50px; /* Modification de la valeur de padding */
             border: 2px solid #fff;
             border-radius: 20px;
             background-color: #111;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
             animation: fadeIn 1s ease;
+            
         }
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -55,6 +56,7 @@
         }
         .form-label {
             color: #fff;
+            
         }
         .btn {
             border-radius: 20px;
@@ -113,6 +115,16 @@
         .btn:focus {
             transform: scale(1.05);
         }
+
+        .photo{
+            filter: brightness(65%);
+            size: 54%;
+            position: absolute;
+            top: 50px;
+            bottom: 20px;
+            left: -190px;
+            z-index: -3;
+         }
     </style>
 </head>
 <body>
@@ -124,6 +136,7 @@
             console.log('callback - particles.js config loaded');
         });
     </script>
+        <img class="photo" src="img/hacker.png" alt="Photo">
 
     <div class="form-container">
         <h2 class="text-center mb-4">Welcome back</h2>
