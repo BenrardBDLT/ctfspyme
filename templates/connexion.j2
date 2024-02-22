@@ -34,9 +34,9 @@
             padding: 50px; /* Modification de la valeur de padding */
             border: 2px solid #fff;
             border-radius: 20px;
-            background-color: #111;
+            background-color: rgba(0, 0, 0, 0.7);
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-            animation: fadeIn 1s ease;
+            animation: fadeIn 5s ease;
             
         }
         @keyframes fadeIn {
@@ -118,13 +118,17 @@
 
         .photo{
             filter: brightness(65%);
-            size: 54%;
+            size: 30%;
             position: absolute;
             top: 50px;
             bottom: 20px;
-            left: -190px;
-            z-index: -3;
+            left: -220px;
+            z-index: -1;
+            animation: fadeIn 10s ease;
          }
+        .giphy{
+        
+        }
     </style>
 </head>
 <body>
@@ -136,7 +140,7 @@
             console.log('callback - particles.js config loaded');
         });
     </script>
-        <img class="photo" src="img/hacker.png" alt="Photo">
+        
 
     <div class="form-container">
         <h2 class="text-center mb-4">Welcome back</h2>
@@ -158,7 +162,11 @@
             <div class="error-message">Invalid username or password</div>
             <div class="success-message">Login successful</div>
         </form>
+
     </div>
+    
+    <img src="static\img\hacker.png"  alt="Photo" class= "photo">
+    <img src="static/img/gif.gif" alt="gif" class="giphy">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
 </html>
