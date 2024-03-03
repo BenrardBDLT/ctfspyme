@@ -165,7 +165,7 @@ h1{
    
 
 
-            .footer {
+    .footer {
         position: fixed;
         bottom: 0;
         left: 0;
@@ -181,18 +181,21 @@ h1{
         display: flex;
         align-items: center;
         justify-content: center;
+        
     }
 
     .flag-input {
         width: 80%; /* Ajustez la largeur au besoin */
         padding: 8px;
         font-size: 1rem;
+        background-color: rgba(34, 34, 34, 0.521);
+        border-radius: 90px;
     }
 
 
     .flag-input:focus {
         outline: none;
-        box-shadow: 0 0 3px 0 #4CAF50;
+        box-shadow: 0 0 3px 0 #fff;
     }
 
     .epreuve-content {
@@ -201,5 +204,18 @@ h1{
     
     .epreuve.open .epreuve-content {
         display: block; /* Afficher le contenu de l'épreuve lorsqu'il est ouvert */
+    }
+    
+    .flag-submit-button {
+        background-color: rgb(24, 24, 24); /* Couleur de fond du bouton */
+        color: white; /* Couleur du texte */
+        border: none; /* Supprimer la bordure */
+        padding: 10px 20px; /* Ajouter un peu d'espacement intérieur */
+        border-radius: 90px; /* Ajouter un peu de courbure aux coins */
+        cursor: pointer; /* Curseur de la souris au survol */
+    }
+    
+    .flag-submit-button:hover {
+        background-color: rgba(34, 34, 34, 0.521); /* Changement de couleur au survol */
     }
     

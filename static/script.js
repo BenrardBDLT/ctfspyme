@@ -22,3 +22,31 @@ const menuHamburger = document.querySelector(".menu-hamburger");
             });
         });
     });
+    // script.js
+document.querySelector('form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Empêcher le formulaire d'être soumis normalement
+
+    const flag = document.querySelector('.flag-input').value;
+
+    // Soumettre les données du formulaire à la route Flask
+    fetch('/validate-flag', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'flag=' + encodeURIComponent(flag),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Flag valide, effectuez les actions nécessaires ici
+            console.log('Flag valide');
+            // Réinitialiser le champ du drapeau
+            document.querySelector('.flag-input').value = '';
+        } else {
+            // Flag invalide, effectuez les actions nécessaires ici
+            console.log('Flag invalide');
+        }
+    })
+    .catch(error => console.error('Erreur lors de la soumission du formulaire :', error));
+});
