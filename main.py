@@ -7,7 +7,7 @@ def con():
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
-        if username == 'robin' and password == 'start':
+        if username == 'Axel' and password == 'start':
             return redirect('/main')
         else:
             return redirect('/')    
