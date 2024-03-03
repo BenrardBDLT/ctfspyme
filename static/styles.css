@@ -151,10 +151,9 @@ h1{
 
 
     .container {
-        width: 60%; /* Réduire la largeur des conteneurs */
-        height: auto; /* Ajuster la hauteur automatiquement */
-        margin-bottom: 20px;
-        border: 1px solid #ddd;
+        width: 100%; /* Réduire la largeur des conteneurs */
+        height: 70px; /* Ajuster la hauteur automatiquement */
+        margin-bottom: 40px;
         border-radius: 90px;
         display: flex;
         align-items: center;
@@ -195,3 +194,12 @@ h1{
         outline: none;
         box-shadow: 0 0 3px 0 #4CAF50;
     }
+
+    .epreuve-content {
+        display: none; /* Contenu de l'épreuve est initialement caché */
+    }
+    
+    .epreuve.open .epreuve-content {
+        display: block; /* Afficher le contenu de l'épreuve lorsqu'il est ouvert */
+    }
+    
