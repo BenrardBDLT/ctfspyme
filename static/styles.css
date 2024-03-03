@@ -140,3 +140,58 @@ h1{
     font-size: 1.5em;
     }
 
+    .main-content {
+        padding-top: 200px; /* ou toute autre valeur qui vous convient */
+        display: flex;
+        flex-direction: column; /* Modifier la direction en colonne */
+        align-items: flex-start; /* Aligner les conteneurs à gauche */
+        justify-content: flex-start; /* Aligner les conteneurs à gauche */
+        width: 100%;
+    }
+
+
+    .container {
+        width: 60%; /* Réduire la largeur des conteneurs */
+        height: auto; /* Ajuster la hauteur automatiquement */
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #505050;
+    }
+
+
+   
+
+
+            .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #444;
+        color: #fff;
+        padding: 10px 20px;
+        z-index: 100;
+    }
+
+    .flag-input-container {
+        width: 100%; /* Ajustez la largeur au besoin */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .flag-input {
+        width: 80%; /* Ajustez la largeur au besoin */
+        padding: 8px;
+        font-size: 1rem;
+    }
+
+
+    .flag-input:focus {
+        outline: none;
+        box-shadow: 0 0 3px 0 #4CAF50;
+    }
