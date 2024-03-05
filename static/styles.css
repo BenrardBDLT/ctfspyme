@@ -190,8 +190,12 @@ h1{
         font-size: 1rem;
         background-color: rgba(34, 34, 34, 0.521);
         border-radius: 90px;
+        color: white;
     }
-
+    .flag-input:hover{
+        background-color: #fff;
+        color: black;
+    }
 
     .flag-input:focus {
         outline: none;
