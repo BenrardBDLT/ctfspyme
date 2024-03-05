@@ -5,6 +5,7 @@ app = Flask(__name__)
 # Route pour la page de connexion
 @app.route('/', methods=['GET', 'POST'])
 def con():
+    
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
@@ -13,15 +14,15 @@ def con():
         else:
             return redirect('/')
     return render_template('connexion.j2')
-
 # Route pour la page principale
 @app.route('/main')
 def index():
     return render_template('main.j2')
 
 # Route pour la validation du flag
-@app.route('/validate_flag')
+@app.route('/gererdonees', methods=["GET","POST"])
 def validate():
+    print(request.args)
     return "hello world !"
 
 
