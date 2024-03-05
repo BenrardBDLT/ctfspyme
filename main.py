@@ -20,13 +20,6 @@ def index():
 # Route pour la validation du flag
 @app.route('/gererdonees', methods=["POST"])
 
-def validate():
-    print(request.args)
-    flag = request.form.get("flag")
-    if flag == 'flag':
-        return redirect('/main')
-    else:
-        return redirect('/main ')
 
 # Routes pour les pages d'épreuves
 @app.route('/epreuve1')
