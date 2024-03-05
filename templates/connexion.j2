@@ -144,7 +144,7 @@
 
     <div class="form-container">
         <h2 class="text-center mb-4">Welcome back</h2>
-        <form method="POST" action="/">
+        <form method="POST" action="{{ url_for ('index')}}">
             <div class="mb-3 position-relative">
                 <label for="username" class="form-label"><i class="fas fa-user"></i> Username</label>
                 <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp">

@@ -57,6 +57,12 @@
         <form action="{{ url_for('validate') }}" method="POST">
             <input class="flag-input" type="text" name="flag" placeholder="Enter flag here">
             <input type="submit" class="flag-submit-button" value= "Valider">
+            
+            {% if flagpblm %}
+                <p>flag faux</p>
+            {% else %}
+                
+            {%endif%}
         </form>
 </footer>
 
