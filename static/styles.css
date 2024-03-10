@@ -259,3 +259,12 @@ h1{
         color: gray;
         float: right;
     }
+    .popup a {
+        color: white; /* Définir la couleur du texte des liens sur blanc */
+        text-decoration: none;
+        font-weight: bold; /* Supprimer la décoration par défaut des liens */
+    }
+    
+    .popup a:hover {
+        color: white; /* Définir la couleur du texte des liens survolés sur blanc */
+    }
