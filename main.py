@@ -17,10 +17,13 @@ def index():
             return render_template('main.j2')
     else:
         return redirect('/')
-# Route pour la validation du flag
-@app.route('/gererdonees', methods=["POST"])
 
-
+    flag = request.form.get("flag")
+    if flag == 'flag':
+            return render_template('main.j2')
+    else:
+            return render_template('main.j2', flagpblm=True)
+    
 # Routes pour les pages d'épreuves
 @app.route('/epreuve1')
 def page1():

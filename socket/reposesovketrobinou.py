@@ -1,7 +1,7 @@
 import socket
 import sys
 
-server_ip = '192.168.68.54'
+server_ip = '192.168.68.55'
 server_port = 2000
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 

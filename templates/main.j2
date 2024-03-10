@@ -27,12 +27,12 @@
     </nav>
     <h1>Bienvenue</h1>
     <div class="main-content">
-        <div class="container">
-            <h2>Epreuve 1</h2>
-            <div class="epreuve-content">
-                Contenu de l'epreuve 1 
-            </div>
-        </div>
+        <div class="container" onclick="showPopup(`
+    <h3>Explications de l'épreuve :</h3>
+    <p>Texte d'explication de l'épreuve...</p>
+     `)">
+    <h2>Epreuve 1</h2>
+    </div>
         <div class="container">
             <h2>Epreuve 2</h2>
             <div class="epreuve-content">
@@ -54,16 +54,12 @@
         </div>
     </div>
 <footer class="footer">
-        <form action="{{ url_for('index') }}" method="POST">
-            <input class="flag-input" type="text" name="flag" placeholder="Enter flag here">
-            <input type="submit" class="flag-submit-button" value= "Valider">
-            
-            {% if flagpblm %}
-                <p>flag faux</p>
-            {% else %}
-                
-            {%endif%}
-        </form>
+    <form action="{{ url_for('index') }}" method="POST">
+        <input class="flag-input {% if flagpblm %}error{% endif %}" type="text" name="flag" placeholder="Enter flag here">
+        <input type="submit" class="flag-submit-button" value="Valider">
+        
+        <p id="error-message" {% if flagpblm %}style="display: block;"{% endif %}>Flag incorrect</p>
+    </form>
 </footer>
 
 
