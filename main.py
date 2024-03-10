@@ -77,6 +77,8 @@ def page3():
 @app.route('/epreuve4')
 def page4():
     return render_template('epreuve4.j2')
-
+@app.route('/epreuve5')
+def page5():
+    return render_template('epreuve5.j2')
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8000, debug=True)
