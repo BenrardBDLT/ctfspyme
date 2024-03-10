@@ -9,19 +9,7 @@ const menuHamburger = document.querySelector(".menu-hamburger");
 
     
     });
-    document.addEventListener('DOMContentLoaded', function() {
-        const epreuves = document.querySelectorAll('.container');
-
-        epreuves.forEach(epreuve => {
-            epreuve.addEventListener('click', function() {
-                // Trouve le contenu de l'épreuve dans ce container
-                const epreuveContent = this.querySelector('.epreuve-content');
-
-                // Toggle la classe 'open' pour afficher ou cacher le contenu
-                epreuveContent.classList.toggle('open');
-            });
-        });
-    });
+    
     function hideErrorMessage() {
         var errorMessage = document.getElementById('error-message');
         errorMessage.style.display = 'none';
@@ -60,4 +48,15 @@ const menuHamburger = document.querySelector(".menu-hamburger");
     
         // Ajouter le popup à la page
         document.body.appendChild(popup);
-    }
+
+        // Activer l'effet de fondu
+        setTimeout(function() {
+            popup.classList.add('open');
+        }, 10);
+        }
+        popupClose.onclick = function() {
+            popup.classList.remove('open'); // Supprimer la classe 'open' pour déclencher l'effet de fondu
+            setTimeout(function() {
+                document.body.removeChild(popup);
+            }, 500); // Attendre la fin de la transition avant de supprimer le popup
+        };
