@@ -133,18 +133,12 @@
 </head>
 <body>
     <!-- Animation de fond -->
-    <div id="particles-js"></div>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        particlesJS.load('particles-js', 'particles.json', function() {
-            console.log('callback - particles.js config loaded');
-        });
-    </script>
+    
         
 
     <div class="form-container">
         <h2 class="text-center mb-4">Welcome back</h2>
-        <form method="POST" action="{{ url_for ('index')}}">
+        <form method="POST" action="{{ url_for ('post_login')}}">
             <div class="mb-3 position-relative">
                 <label for="username" class="form-label"><i class="fas fa-user"></i> Username</label>
                 <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp">
@@ -166,7 +160,6 @@
     </div>
     
     <img src="static\img\hacker.png"  alt="Photo" class= "photo">
-    <img src="static/img/gif.gif" alt="gif" class="giphy">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
 </html>

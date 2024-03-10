@@ -65,7 +65,7 @@
         </div>
     </div>
 <footer class="footer">
-    <form action="{{ url_for('index') }}" method="POST">
+    <form action="{{ url_for('postflag') }}" method="POST">
         <input class="flag-input {% if flagpblm %}error{% endif %}" type="text" name="flag" placeholder="Enter flag here">
         <input type="submit" class="flag-submit-button" value="Valider">
         

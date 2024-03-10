@@ -1,38 +1,58 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, session, url_for
 import threading
 import subprocess
+import socket
 
 app = Flask(__name__)
+app.secret_key = "votre_clé_secrète" 
+  # Remplacez "your_secret_key" par votre clé secrète réelle
 
-
-def start_server():
+def start_epreuve():
     # Code pour lancer l'épreuve
-    subprocess.run(["python", "socket\serveursocket.py"]) 
+    subprocess.run(["python", "socket/serveursocket.py"])
 
 # Route pour la page de connexion
 @app.route('/', methods=['GET', 'POST'])
 def login():
-    return render_template('connexion.j2')
+    session['logged_in'] = False
+    loginpblm = request.args.get('loginfault') == 'true'
+    return render_template('connexion.j2', loginfault = loginpblm)
+
+@app.route('/post-login', methods=['POST'])
+def post_login():
+    """Fonction exécutée lorsque l'utilisateur soumet le formulaire de connexion.
+    Elle effectue la vérification des identifiants et redirige en conséquence.
+    """
+    name = request.form['username']
+    password = request.form['password']
+
+    if name == 'Axel' and password == 'start':
+        session['logged_in'] = True
+        return redirect(url_for('index'))  # Rediriger vers la page principale
+    else:
+        return redirect("/?loginfault=true")  # Rediriger vers la page de connexion
 
 # Route pour la page principale
-@app.route('/main', methods=['POST'])
+@app.route('/main', methods=['GET', 'POST'])
 def index():
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
+    flagpblm = request.args.get('flagpblm') == 'true'
+
+    return render_template('main.j2', flagpblm=flagpblm)
+        
+
+    return render_template('main.j2')
+@app.route('/flag-post', methods= ['POST'])
+def postflag():
     if request.method == 'POST':
-        username = request.form.get('username')
-        password = request.form.get('password')
-        if username == 'Axel' and password == 'start':
-            return render_template('main.j2')
-    if request.method == 'POST' and 'home-form' in request.form:
-        return render_template('main.j2')
-    else:
-        return redirect('/')
+        flag = request.form.get("flag")
 
-    flag = request.form.get("flag")
-    if flag == 'flag':
-        return render_template('main.j2')
-    else:
-        return render_template('main.j2', flagpblm=True)
-
+        if flag == 'flag':
+            return redirect('/main')
+        else:
+            return redirect('/main?flagpblm=true')
+            
 # Routes pour les pages d'épreuves
 @app.route('/epreuve1')
 def page1():
@@ -44,14 +64,15 @@ def page2():
 
 @app.route('/start_server')
 def start_server_route():
-    # Exécuter le script start_server() dans un thread séparé
-    epreuve_thread = threading.Thread(target=start_server)
+    # Exécuter le script start_epreuve() dans un thread séparé
+    epreuve_thread = threading.Thread(target=start_epreuve)
     epreuve_thread.start()
     return "Script d'épreuve lancé avec succès!"
 
 @app.route('/epreuve3')
 def page3():
-    return render_template('epreuve3.j2')
+    ip = request.remote_addr  # Récupère l'adresse IP du client
+    return render_template('epreuve3.j2', ip=ip)
 
 @app.route('/epreuve4')
 def page4():
