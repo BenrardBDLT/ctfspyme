@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geoghesser</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/styles.css') }}">
+</head>
+<body>
+    <div class="text">
+        <h1>geoghesseure</h1>
+        <h2>bienvenue dans ce geoghesseure l'objectif est tres simple il suffit d'identifier et de trouver le nom de la place et le nom de la ville dans laquelle toutes ces photos ont été prises</h2>
+    </div>
+    <div class="image-container">
+        <img src="{{ url_for('static',filename='img/image1.jpg') }}" alt="Image 1" onclick="openDialog('image1.jpg')">
+        <img src="{{ url_for('static',filename='img/image2.jpg') }}" alt="Image 2" onclick="openDialog('image2.jpg')">
+        <img src="{{ url_for('static',filename='img/image3.jpg') }}" alt="Image 3" onclick="openDialog('image3.jpg')">
+        <img src="{{ url_for('static',filename='img/image4.jpg') }}" alt="Image 4" onclick="openDialog('image4.jpg')">
+        <img src="{{ url_for('static',filename='img/image5.jpg') }}" alt="Image 5" onclick="openDialog('image5.jpg')">
+        <img src="{{ url_for('static',filename='img/image6.png') }}" alt="Image 6" onclick="openDialog('image6.png')">
+    </div>
+
+    <div id="dialog-box" class="dialog-box">
+        <input type="text" id="placeInput" placeholder="Entrez le nom de la place au format pl. [nom de la place], [nom de la ville] (sans accent ni majuscule)">
+        <button onclick="submitPlace()">Submit</button>
+        <p id="result-text"></p>
+    </div>
+
+    <script type="text/javascript" src="{{ url_for('static',filename='scripts/script.js') }}"></script>
+</body>
+</html>
