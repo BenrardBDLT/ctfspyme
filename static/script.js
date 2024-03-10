@@ -63,33 +63,5 @@ const menuHamburger = document.querySelector(".menu-hamburger");
         
         
         
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuItems = document.querySelectorAll('.menu li a');
-            const displayedImage = document.getElementById('displayed-image');
-        
-            // Fonction pour changer l'image affichée
-            function changeImage(event) {
-                event.preventDefault();
-                const imageSrc = event.target.getAttribute('data-image');
-                displayedImage.src = imageSrc;
-            }
-        
-            // Ajouter un gestionnaire d'événement à chaque élément du menu
-            menuItems.forEach(function(item) {
-                item.addEventListener('click', changeImage);
-            });
-        });
 
-        function openDialog(imageSrc) {
-    const imagePopup = document.getElementById('imagePopup');
-    const popupImage = document.getElementById('popupImage');
-
-    popupImage.src = "{{ url_for('static', filename='img/epreuve/') }}" + imageSrc;
-    imagePopup.style.display = 'block';
-}
-
-function closeDialog() {
-    const imagePopup = document.getElementById('imagePopup');
-    imagePopup.style.display = 'none';
-} 
 

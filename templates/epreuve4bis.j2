@@ -6,6 +6,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geoghesser</title>
     <link rel="stylesheet" href="static/styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        body {
+            font-family: 'Lucida Sans Unicode';
+            background-color: rgb(32, 32, 32);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+        }
+
+        nav ul li a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+        }
+
+        .main {
+            padding: 20px;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-container img {
+            transition: opacity 1s ease-in-out;
+            opacity: 0;
+        }
+
+        .image-container img.show {
+            opacity: 1;
+        }
+
+        .image-popup {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .image-popup img {
+            display: block;
+            margin: 0 auto;
+            max-width: 90%;
+            max-height: 90%;
+            margin-top: 10%;
+        }
+
+        .image-popup .close {
+            color: #fff;
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .image-popup .close:hover {
+            color: #bbb;
+        }
+        .fade-in {
+            opacity: 0;
+            animation: fade-in 1s ease-in-out forwards;
+        }
+
+        @keyframes fade-in {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+        }
+    </style>
 </head>
 
 <body>
@@ -28,14 +129,57 @@
             <img src="static/img/epreuve/image3.jpg" alt="Image 3">
             <img src="static/img/epreuve/image4.jpg" alt="Image 4">
             <img src="static/img/epreuve/image5.jpg" alt="Image 5">
-            <img src="static/img/epreuve/image6.png" alt="Image 6"
+            <img src="static/img/epreuve/image6.png" alt="Image 6">
         </div>
     </main>
     <div class="image-popup" id="imagePopup">
         <span class="close" onclick="closeDialog()">&times;</span>
         <img src="" alt="" id="popupImage">
     </div>
-    <script src="static/script.js"></script>
+    <script> 
+    document.addEventListener('DOMContentLoaded', function() {
+  const menuItems = document.querySelectorAll('.menu li a');
+  const displayedImage = document.getElementById('displayed-image');
+  const images = document.querySelectorAll('.image-container img');
+
+  // Fonction pour changer l'image affichée
+  function changeImage(event) {
+  event.preventDefault();
+  const imageSrc = event.target.getAttribute('data-image');
+  displayedImage.src = imageSrc;
+
+  // Réinitialiser la classe "show" pour toutes les images
+  images.forEach(function (image) {
+    image.classList.remove('show');
+    image.classList.add('fade-in');
+  });
+
+  // Ajouter la classe "show" à l'image sélectionnée après un court délai
+  setTimeout(function () {
+    const selectedImage = document.querySelector(`.image-container img[src="${imageSrc}"]`);
+    selectedImage.classList.add('show');
+  }, 50);
+}
+
+  // Ajouter un gestionnaire d'événement à chaque élément du menu
+  menuItems.forEach(function(item) {
+    item.addEventListener('click', changeImage);
+  });
+});
+
+function openDialog(imageSrc) {
+  const imagePopup = document.getElementById('imagePopup');
+  const popupImage = document.getElementById('popupImage');
+
+  popupImage.src = "{{ url_for('static', filename='img/epreuve/') }}" + imageSrc;
+  imagePopup.style.display = 'block';
+}
+
+function closeDialog() {
+  const imagePopup = document.getElementById('imagePopup');
+  imagePopup.style.display = 'none';
+}
+    </script>
 </body>
 
 </html>
