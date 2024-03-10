@@ -21,14 +21,9 @@
     </div>
 
    <footer class="footer">
-    <form action="{{ url_for('page_reponse') }}" method="POST">
+    <form action="{{ url_for('page4') }}" method="POST">
         <input class="flag-input {% if flagpblm %}error{% endif %}" type="text" name="reponse" placeholder="Enter flag here">
         <input type="submit" class="flag-submit-button" value="Valider">
-        {% if session['flag_correct'] %}
-    <p>La réponse est correcte ! Le flag est : FLAG{votre_flag}</p>
-{% else %}
-    <p>La réponse est incorrecte. Veuillez réessayer.</p>
-{% endif %}
         
     </form>
 </footer>

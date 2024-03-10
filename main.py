@@ -76,17 +76,9 @@ def page3():
 
 @app.route('/epreuve4')
 def page4():
-    reponse = request.args.get('reponse') == 'true'
-    return render_template('epreuve4.j2', reponse = False)
+    return render_template('epreuve4.j2')
 
-@app.route('/post-reponse', methods= ['POST'])
-def page_reponse():
-    reponse = request.form.get('reponse')
-    if reponse == 'pl. du chateau, jumilhac-le-grand':
-        session['flag_correct'] = True
-    else:
-        session['flag_correct'] = False
-    return redirect('/epreuve5')
+
 @app.route('/epreuve5')
 def page5():
     return render_template('epreuve5.j2')
