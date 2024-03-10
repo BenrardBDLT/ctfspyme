@@ -14,10 +14,7 @@
   <div id="image-container">
     <img id="image" src="{{ url_for('static',filename='img/epreuve/code.png') }}" alt="Image Description">
   </div>
+<button id="help-button">Aide</button>
 
-  <p id="help-text">aide: 8px = 1char</p>
-  <!--aide 2: table ascii-->
+<p id="help-text">aide: 8px = 1char</p> <!--aide 2: table ascii--> <script> const helpButton = document.getElementById('help-button'); const helpText = document.getElementById('help-text'); helpButton.addEventListener('mouseover', function() { helpText.style.display = 'block'; }); helpButton.addEventListener('mouseout', function() { helpText.style.display = 'none'; }); </script> </body> </html>
 
-</body>
-
-</html>
