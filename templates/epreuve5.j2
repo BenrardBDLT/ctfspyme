@@ -4,17 +4,120 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{{ url_for('static',filename='styles.css') }}">
   <title>l'image</title>
+  
 </head>
 
 <body>
-  <h1>l'image</h1>
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+      list-style: none;
+    }
 
-  <div id="image-container">
+    body {
+      font-family: 'Lucida Sans Unicode';
+      background-color: rgb(32, 32, 32);
+      
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    header {
+      height: 100vh;
+      width: 100vw;
+      background-color: rgb(26, 26, 26);
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #image {
+        width: 80%;
+        max-width: 400px;
+        display: flex;
+        justify-content:center;
+        }
+
+    #help-button {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      background-color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #help-button:hover #help-text {
+      display: block;
+    }
+
+    #help-text {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgb(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: white;
+      padding: 10px;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .text-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 50vh;
+      text-align: center;
+    }
+
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+  </style>
+  <div class="text-container">
+    <h1>l'image</h1>
+  </div>
+
+  <div class="image-container">
     <img id="image" src="{{ url_for('static',filename='img/epreuve/code.png') }}" alt="Image Description">
   </div>
-<button id="help-button">Aide</button>
 
-<p id="help-text">aide: 8px = 1char</p> <!--aide 2: table ascii--> <script> const helpButton = document.getElementById('help-button'); const helpText = document.getElementById('help-text'); helpButton.addEventListener('mouseover', function() { helpText.style.display = 'block'; }); helpButton.addEventListener('mouseout', function() { helpText.style.display = 'none'; }); </script> </body> </html>
+  <button id="help-button">Aide</button>
+  <p id="help-text">aide: 8px = 1char</p>
 
+  <script>document.addEventListener('DOMContentLoaded', function() {
+            const helpButton = document.getElementById('help-button');
+            const helpText = document.getElementById('help-text');
+          
+            helpButton.addEventListener('mouseover', function() {
+              helpText.style.display = 'block';
+            });
+          
+            helpButton.addEventListener('mouseout', function() {
+              helpText.style.display = 'none';
+            });
+          });</script>
+</body>
+
+</html>

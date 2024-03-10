@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geoghesser</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+
+<body>
+    <h1>geoguessr</h1>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="#" onclick="openDialog('image1.jpg')">Image 1</a></li>
+                <li><a href="#" onclick="openDialog('image2.jpg')">Image 2</a></li>
+                <li><a href="#" onclick="openDialog('image3.jpg')">Image 3</a></li>
+                <li><a href="#" onclick="openDialog('image4.jpg')">Image 4</a></li>
+                <li><a href="#" onclick="openDialog('image5.jpg')">Image 5</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="image-container">
+            <img src="static/img/epreuve/image1.jpg" alt="Image 1">
+            <img src="static/img/epreuve/image2.jpg" alt="Image 2">
+            <img src="static/img/epreuve/image3.jpg" alt="Image 3">
+            <img src="static/img/epreuve/image4.jpg" alt="Image 4">
+            <img src="static/img/epreuve/image5.jpg" alt="Image 5">
+            <img src="static/img/epreuve/image6.png" alt="Image 6"
+        </div>
+    </main>
+    <div class="image-popup" id="imagePopup">
+        <span class="close" onclick="closeDialog()">&times;</span>
+        <img src="" alt="" id="popupImage">
+    </div>
+    <script src="static/script.js"></script>
+</body>
+
+</html>

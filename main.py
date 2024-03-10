@@ -76,7 +76,7 @@ def page3():
 
 @app.route('/epreuve4')
 def page4():
-    return render_template('epreuve4.j2')
+    return render_template('epreuve4bis.j2')
 
 
 @app.route('/epreuve5')
