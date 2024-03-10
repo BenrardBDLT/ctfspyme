@@ -18,7 +18,9 @@
     <nav class="navbar animation-on-load">
         <div class="nav-links">
             <ul>
-                <li><a href="#">Accueil</a></li>
+                <li><form action="{{ url_for('index') }}" method="POST">
+                    <input type="submit" value="Accueil" class="link-text" name="home-form">
+                </form></li>               
                 <li><a href="#">A propos</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
@@ -41,14 +43,16 @@
                 <h3>Explications de l'épreuve :</h3>
                 <p>' J'ai intercepté un message de ce groupe, chiffrés par une application qu'ils ont eux même crée, je n'ai donc pas réussi à l'ouvrir. Par chance j'ai pu retrouver leurs trace sur un réseau nommé git... quelque chose je ne me souviens plus très bien, j'ai trouvé cet utilisateur du nom de Robinsoncrusauee, ou dave le magicien, quelque chose comme ça...'</p></br>
                 <p> Faites votre enquête pour décripter ce message, il pourrait vous donner de précieuse information sur la disparition de votre ami...</p></br>
-                <a href = 'static\download\flag.notes' download>flag.note</a>
+                <a href ='/static/download/flag.notes'  download ='static\download\flag.notes' >flag.note</a>
                 `)">
             <h2>Epreuve 2</h2>
         </div>
 
         <div class="container" onclick="showPopup(`
                 <h3>Explications de l'épreuve :</h3>
-                <p>Texte d'explication de l'épreuve...</p>
+                <p>blablabla</p></br>
+                <a href = '/epreuve3'>Cliquez ici pour accéder à l'épreuve 3</a></br>
+                </br><a href='/static/download/socketaide.py' download>Voici un programme socket pour vous aider à communiquer avec le serveur </a>
                 `)">
             <h2>Epreuve 3</h2>
         </div>
@@ -56,7 +60,8 @@
         <div class="container" onclick="showPopup(`
                 <h3>Explications de l'épreuve :</h3>
                 <p>Texte d'explication de l'épreuve...</p>
-                `)">            <h2>Epreuve 4</h2>
+                `)">            
+            <h2>Epreuve 4</h2>
         </div>
     </div>
 <footer class="footer">
@@ -69,7 +74,9 @@
 </footer>
 
 
-     <script src="static/script.js"></script>
+     <script src="static/script.js"> 
+       
+     </script>
   
 
 

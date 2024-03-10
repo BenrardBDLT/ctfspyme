@@ -268,3 +268,10 @@ h1{
     .popup a:hover {
         color: white; /* Définir la couleur du texte des liens survolés sur blanc */
     }
+    .link-text {
+        background: none;
+        border: none;
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+        font-size: 1.1em;
+    }

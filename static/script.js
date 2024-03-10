@@ -60,3 +60,4 @@ const menuHamburger = document.querySelector(".menu-hamburger");
                 document.body.removeChild(popup);
             }, 500); // Attendre la fin de la transition avant de supprimer le popup
         };
+        

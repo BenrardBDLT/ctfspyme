@@ -24,8 +24,8 @@ deuxieme page (cliqué ordi) login
 
 
 épreuve:
-epreuve flag code 
-épreuve github 
+epreuve flag code ça 'est con mtn trouver flag 
+épreuve github ça c'est bon mtn trouver flag 
 épreuve socket ~?
 épreuve qr code binaire 
 épreuve image binaire 
