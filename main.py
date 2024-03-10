@@ -48,7 +48,7 @@ def postflag():
     if request.method == 'POST':
         flag = request.form.get("flag")
 
-        if flag == 'flag':
+        if flag == 'BiEn_JoU3':
             return redirect('/main')
         else:
             return redirect('/main?flagpblm=true')
@@ -72,7 +72,7 @@ def start_server_route():
 @app.route('/epreuve3')
 def page3():
     ip = request.remote_addr  # Récupère l'adresse IP du client
-    return render_template('epreuve3.j2', ip=ip)
+    return render_template('epreuve3.j2', ip=socket.gethostbyname(socket.gethostname()))
 
 @app.route('/epreuve4')
 def page4():
