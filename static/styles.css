@@ -280,12 +280,7 @@ h1{
         font-size: 50100 ;
     }
     
-    .image-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: 20px;
-    }
+    
     
     .image-container img {
         max-width: 100%;
@@ -315,3 +310,42 @@ h1{
         padding: 20px;
         cursor: pointer;
     }
+    
+    #image-container { 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        height: 100vh; }
+
+    #image {
+        width: 80%;
+        max-width: 400px;
+        }
+
+    
+          
+          #help-button {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+          
+          #help-button:hover #help-text {
+            display: block;
+          }
+          
+          #help-text {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          }
