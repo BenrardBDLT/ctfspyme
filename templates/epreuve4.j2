@@ -20,11 +20,14 @@
         <img src="{{ url_for('static',filename='img/epreuve/image6.png') }}" alt="Image 6" onclick="openDialog('image6.png')">
     </div>
 
-    <div id="dialog-box" class="dialog-box">
-        <input type="text" id="placeInput" placeholder="Entrez le nom de la place au format pl. [nom de la place], [nom de la ville] (sans accent ni majuscule)">
-        <button onclick="submitPlace()">Submit</button>
-        <p id="result-text"></p>
-    </div>
+   <footer class="footer">
+    <form action="{{ url_for('page_reponse') }}" method="POST">
+        <input class="flag-input {% if flagpblm %}error{% endif %}" type="text" name="reponse" placeholder="Enter flag here">
+        <input type="submit" class="flag-submit-button" value="Valider">
+        
+        <p id="error-message" {% if reponse %}style="display: block;"{% endif %}>bonne réponse, le flag est :</p>
+    </form>
+</footer>
 
     <script type="text/javascript" src="{{ url_for('static',filename='script.js') }}"></script>
 </body>

@@ -48,7 +48,7 @@ def postflag():
     if request.method == 'POST':
         flag = request.form.get("flag")
 
-        if flag == 'BiEn_JoU3':
+        if flag == 'FLAG{Louis_le_hacker}':
             return redirect('/main')
         else:
             return redirect('/main?flagpblm=true')
@@ -76,7 +76,16 @@ def page3():
 
 @app.route('/epreuve4')
 def page4():
-    return render_template('epreuve4.j2')
+    reponse = request.args.get('reponse') == 'true'
+    return render_template('epreuve4.j2', reponse = False)
+
+@app.route('/post-reponse', methods= ['POST'])
+def page_reponse():
+    reponse = request.form.get('reponse')
+    if reponse == 'pl. du chateau, jumilhac-le-grand':
+        redirect('/epreuve4?reponse=false')
+    else: 
+        redirect('/epreuve4?reponse=true')
 @app.route('/epreuve5')
 def page5():
     return render_template('epreuve5.j2')
