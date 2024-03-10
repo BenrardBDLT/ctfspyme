@@ -5,6 +5,7 @@ import socket
 
 app = Flask(__name__)
 app.secret_key = "votre_clé_secrète" 
+score = 0
   # Remplacez "your_secret_key" par votre clé secrète réelle
 
 def start_epreuve():
@@ -48,7 +49,11 @@ def postflag():
     if request.method == 'POST':
         flag = request.form.get("flag")
 
-        if flag == 'FLAG{Louis_le_hacker}':
+        if flag == 'flag{Louis_le_hacker}' or 'flag{Weuve_le_malefique}':
+            global score
+            score +=1
+            if score >= 5:
+                return render_template('found_all_flags.j2')
             return redirect('/main')
         else:
             return redirect('/main?flagpblm=true')

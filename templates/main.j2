@@ -36,6 +36,7 @@
             <h3>Explications de l'épreuve :</h3>
             <p>'J'ai découvert un site de vente de voitures frauduleux. En enquêtant un peu, j'ai découvert l'identité du coupable. Il s'avère qu'il travaille pour l'organisation que je suis en train de traquer. Il leur sert sûrement de porte-monnaie. Le mettre hors jeu leur mettrait des bâtons dans les roues.'</p></br>
             <p>Trouvez l'identité du coupable pour vous rapprocher un peu plus de votre ami disparu</p></br>
+            <p>Format du flag: flag{str}</p></br>
             <a href='/epreuve1'>Cliquez ici pour accéder à l'épreuve</a>
         `)">
             <h2>Epreuve 1</h2>
@@ -45,6 +46,7 @@
                 <h3>Explications de l'épreuve :</h3>
                 <p>' J'ai intercepté un message de ce groupe, chiffrés par une application qu'ils ont eux même crée, je n'ai donc pas réussi à l'ouvrir. Par chance j'ai pu retrouver leurs trace sur un réseau nommé git... quelque chose je ne me souviens plus très bien, j'ai trouvé cet utilisateur du nom de Robinsoncrusauee, ou dave le magicien, quelque chose comme ça...'</p></br>
                 <p> Faites votre enquête pour décripter ce message, il pourrait vous donner de précieuse information sur la disparition de votre ami...</p></br>
+                <p>Format du flag: flag{str}</p></br>
                 <a href ='/static/download/flag.notes'  download ='static\download\flag.notes' >flag.note</a>
                 `)">
             <h2>Epreuve 2</h2>
@@ -54,6 +56,7 @@
                 <h3>Explications de l'épreuve :</h3>
                 <p>'Je suis sur le point de découvrir l'identité d'un des collaborateurs majeur de leurs organsiation, mais il se cache derriere un programme que je n'arrive pas à déchiffrer tout seul, j'ai toujours détésté les maths'</p></br>
                 <p> Résolvez cette épreuve pour découvrir l'identité de l'un des ravisseurs</p></br>
+                <p>Format du flag: flag{str}</p></br>
                 <a href = '/epreuve3'>Cliquez ici pour accéder à l'épreuve 3</a></br>
                 </br><a href='/static/download/socketaide.py' download>Voici un programme socket pour vous aider à communiquer avec le serveur </a>
                 `)">
@@ -63,6 +66,7 @@
         <div class="container" onclick="showPopup(`
                 <h3>Explications de l'épreuve :</h3>
                 <p>Votre ami Axel a réussi à prendre des photos du lieu ou il est tenu pisonier et vous a envoyé ces images en esperant que vous etes capable de le localiser. Identifiez le lieu ou ont été prises les image pour pouvoir lui venir en aide</p></br>
+                <p>Format du flag: flag{str}</p></br>
                 <a href = '/epreuve4'> cliquez ici pour accéder à l'épreuve</a>
                 `)">            
             <h2>Epreuve 4</h2>
@@ -72,12 +76,14 @@
         <div class="container" onclick="showPopup(`
                 <h3>Explications de l'épreuve :</h3>
                 <p>Votre ami Axel avant de disparaitre vous a envoyé une image étrange. Cette image en noir et blanc semble cacher un message et il semblerait qu'en le dechifrant vous aurez le nom de l'organisation qui l'a enlevé.</p></br>
+                <p>Format du flag: flag{str}</p></br>
                 <a href = '/epreuve5'> cliquez ici pour accéder à l'épreuve</a>
                 `)">            
             <h2>Epreuve 5</h2>
         </div>
 
     </div>
+  
 <footer class="footer">
     <form action="{{ url_for('postflag') }}" method="POST">
         <input class="flag-input {% if flagpblm %}error{% endif %}" type="text" name="flag" placeholder="Enter flag here">

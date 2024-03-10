@@ -72,7 +72,7 @@ def handle_client(client_socket, addr):
                 break  # Sortir de la boucle et fermer la communication avec le client
             print("Nombre de communications avec le client", addr, ":", communication_count)
             if communication_count == 100:
-                client_socket.send("Flag: BiEn_JoU3 ".encode())
+                client_socket.send("Flag: {Weuve_le_malefique} ".encode())
                 client_socket.close()
                
         except socket.timeout:
