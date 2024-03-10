@@ -48,9 +48,34 @@ def index():
 def postflag():
     if request.method == 'POST':
         flag = request.form.get("flag")
-
-        if flag == 'flag{Louis_le_hacker}' or 'flag{Weuve_le_malefique}':
-            global score
+        global score
+        #verif flag 1
+        if flag == 'flag{Louis_le_hacker}' :
+            
+            score +=1
+            if score >= 5:
+                return render_template('found_all_flags.j2')
+            return redirect('/main')
+        #verif flag 2
+        if flag == 'flag{Weuve_le_malefique}' :
+            score +=1
+            if score >= 5:
+                return render_template('found_all_flags.j2')
+            return redirect('/main')
+        #verif flag 3
+        if flag == 'flag{3}' :
+            score +=1
+            if score >= 5:
+                return render_template('found_all_flags.j2')
+            return redirect('/main')
+        #verif flag 4
+        if flag == 'flag{4}' :
+            score +=1
+            if score >= 5:
+                return render_template('found_all_flags.j2')
+            return redirect('/main')
+        #verif flag 5
+        if flag == 'flag{5}' :
             score +=1
             if score >= 5:
                 return render_template('found_all_flags.j2')
