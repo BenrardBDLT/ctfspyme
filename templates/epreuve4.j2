@@ -24,8 +24,12 @@
     <form action="{{ url_for('page_reponse') }}" method="POST">
         <input class="flag-input {% if flagpblm %}error{% endif %}" type="text" name="reponse" placeholder="Enter flag here">
         <input type="submit" class="flag-submit-button" value="Valider">
+        {% if session['flag_correct'] %}
+    <p>La réponse est correcte ! Le flag est : FLAG{votre_flag}</p>
+{% else %}
+    <p>La réponse est incorrecte. Veuillez réessayer.</p>
+{% endif %}
         
-        <p id="error-message" {% if reponse %}style="display: block;"{% endif %}>bonne réponse, le flag est :</p>
     </form>
 </footer>
 
