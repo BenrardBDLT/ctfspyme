@@ -1,4 +1,0 @@
-héberger le site sur pythonanywhere
-rendre le site au prof 
-demander à robin si son truc ducoup c'est bien en le décrpitant axel et start les id 
-
