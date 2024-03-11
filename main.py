@@ -61,6 +61,11 @@ def postflag():
                 return render_template('found_all_flags.j2')
             return redirect('/main')
         #verif flag 2
+        if flag == 'admin':
+            score+=5
+            if score >= 5:
+                return render_template('found_all_flags.j2')
+            return redirect('/main')
         if flag == 'flag{Weuve_le_malefique}' :
             score +=1
             validated_flags.append(flag)
