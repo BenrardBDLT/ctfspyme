@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, session, url_for
 import threading
 import subprocess
 import socket
-
+import smtplib
 app = Flask(__name__)
 app.secret_key = "votre_clé_secrète" 
 score = 0
@@ -120,5 +120,10 @@ def page4():
 @app.route('/epreuve5')
 def page5():
     return render_template('epreuve5.j2')
+@app.route('/contact')
+def contact():
+    return render_template('contact.j2')
+    
+
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8000, debug=True)
