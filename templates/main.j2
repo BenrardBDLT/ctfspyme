@@ -77,7 +77,7 @@
         <div class="container" onclick="showPopup(`
                 <h3>Explications de l'épreuve :</h3>
                 <p>Votre ami Axel avant de disparaitre vous a envoyé une image étrange. Cette image en noir et blanc semble cacher un message et il semblerait qu'en le dechifrant vous aurez le nom de l'organisation qui l'a enlevé.</p></br>
-                <p>Format du flag: flag{str}</p></br>
+                <p>Format du flag: flag{region_nom-de-la-ville}</p></br>
                 <a href = '/epreuve5'> cliquez ici pour accéder à l'épreuve</a>
                 `)">            
             <h2>Epreuve 5</h2>
@@ -91,6 +91,7 @@
         <input type="submit" class="flag-submit-button" value="Valider">
         
         <p id="error-message" {% if flagpblm %}style="display: block;"{% endif %}>Flag incorrect</p>
+        <p id="again-message" style="display: {% if flagagain %}block{% else %}none{% endif %}">Flag déjà trouvé !</p>
     </form>
 </footer>
 
@@ -100,20 +101,6 @@
      </script>
   
 
-
-
-<!-- 
--maintenant je dois faire en sorte que les countainers de déroule 
-- faire en sorte de rendre le bouton input du flag plus beau
--faire les pages pour les epruves, l'avancée de l'enquete et un formulaire pour mailer 
--je dois aussi faire des requetes flask pour le flag 
--je dois faire les trucs pour l'avancée de l'enquete 
--je dois trouver copmment héberger le site *
-
-
-
-
-https://www.youtube.com/watch?v=FdA1P7dY_18 post et get flask à continuer la je vais dodo-->
 </body>
 
 </html>

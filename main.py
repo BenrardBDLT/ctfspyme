@@ -6,6 +6,7 @@ import socket
 app = Flask(__name__)
 app.secret_key = "votre_clé_secrète" 
 score = 0
+validated_flags = []
   # Remplacez "your_secret_key" par votre clé secrète réelle
 
 def start_epreuve():
@@ -39,8 +40,8 @@ def index():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
     flagpblm = request.args.get('flagpblm') == 'true'
-
-    return render_template('main.j2', flagpblm=flagpblm)
+    flagagain = request.args.get('flagdejatrouvé') == 'true'
+    return render_template('main.j2', flagpblm=flagpblm, flagagain=flagagain)
         
 
     return render_template('main.j2')
@@ -48,35 +49,42 @@ def index():
 def postflag():
     if request.method == 'POST':
         flag = request.form.get("flag")
+        if flag in validated_flags:
+            return redirect('/main?flagdejatrouvé=true')
         global score
         #verif flag 1
         if flag == 'flag{Louis_le_hacker}' :
             
             score +=1
+            validated_flags.append(flag)
             if score >= 5:
                 return render_template('found_all_flags.j2')
             return redirect('/main')
         #verif flag 2
         if flag == 'flag{Weuve_le_malefique}' :
             score +=1
+            validated_flags.append(flag)
             if score >= 5:
                 return render_template('found_all_flags.j2')
             return redirect('/main')
         #verif flag 3
-        if flag == 'flag{3}' :
+        if flag == 'flag{Ax€l_n0us_0b5erv€}' :
             score +=1
+            validated_flags.append(flag)
             if score >= 5:
                 return render_template('found_all_flags.j2')
             return redirect('/main')
         #verif flag 4
-        if flag == 'flag{4}' :
+        if flag == 'flag{NSI_hacking_corp.}' :
             score +=1
+            validated_flags.append(flag)
             if score >= 5:
                 return render_template('found_all_flags.j2')
             return redirect('/main')
         #verif flag 5
-        if flag == 'flag{5}' :
+        if flag == 'flag{perigord_jumilhac-le-grand}' :
             score +=1
+            validated_flags.append(flag)
             if score >= 5:
                 return render_template('found_all_flags.j2')
             return redirect('/main')

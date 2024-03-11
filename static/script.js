@@ -13,7 +13,7 @@ const menuHamburger = document.querySelector(".menu-hamburger");
     function hideErrorMessage() {
         var errorMessage = document.getElementById('error-message');
         errorMessage.style.display = 'none';
-    }
+    }   
 
     // Vérifie si le message d'erreur est affiché et le masque après 3 secondes
     window.addEventListener('DOMContentLoaded', function() {
@@ -23,7 +23,19 @@ const menuHamburger = document.querySelector(".menu-hamburger");
         }
         
     });
-
+    function hideErrorMessage() {
+        var againMessage = document.getElementById('again-message');
+        againMessage.style.display = 'none';
+    }
+    
+    // Vérifie si le message d'erreur est affiché et le masque après 1,8 seconde (1800 ms)
+    window.addEventListener('DOMContentLoaded', function() {
+        var againMessage = document.getElementById('again-message');
+        if (againMessage.style.display === 'block') {
+            setTimeout(hideErrorMessage, 1800); // Masquer le message après 1,8 seconde (1800 ms)
+        }
+    });
+    
     function showPopup(content) {
         // Créer le popup
         var popup = document.createElement('div');

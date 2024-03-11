@@ -1,8 +1,5 @@
-récuperer compte github -> crasuer ma propre appli puis changer le flag avec un truc qui irait bien 
-trouver le flag de l'image et du geoguessr  
-finir les vérif de flag dans le truc flask ça c'est bon, peut etre faire en sorte que les flag ne puissent etre entrer qu'une seule fois
 héberger le site sur pythonanywhere
 rendre le site au prof 
-faire le formulaire de contact et à propos mais peut etre supprimer le à propos ça peut etre pas mal  
+/!\faire le formulaire de contact et à propos mais peut etre supprimer le à propos ça peut etre pas mal  
 demander à robin si son truc ducoup c'est bien en le décrpitant axel et start les id 
-ajouter une petit image en haut 
+
