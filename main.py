@@ -9,9 +9,6 @@ score = 0
 validated_flags = []
   # Remplacez "your_secret_key" par votre clé secrète réelle
 
-def start_epreuve():
-    # Code pour lancer l'épreuve
-    subprocess.run(["python", "socket/serveursocket.py"])
 
 # Route pour la page de connexion
 @app.route('/', methods=['GET', 'POST'])
@@ -105,17 +102,6 @@ def page1():
 def page2():
     return render_template('main.j2')
 
-@app.route('/start_server')
-def start_server_route():
-    # Exécuter le script start_epreuve() dans un thread séparé
-    epreuve_thread = threading.Thread(target=start_epreuve)
-    epreuve_thread.start()
-    return "Script d'épreuve lancé avec succès!"
-
-@app.route('/epreuve3')
-def page3():
-    ip_address = request.remote_addr
-    return render_template('epreuve3.j2', ip_address=ip_address)
 
 @app.route('/epreuve4')
 def page4():
