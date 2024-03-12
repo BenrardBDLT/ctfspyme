@@ -2,9 +2,7 @@ import socket
 import sys
 import subprocess
 
-subprocess.Popen(["python", "serveursocket.py"])
-host= socket.gethostbyname(socket.gethostname())
-server_ip = host
+server_ip = '192.168.68.55'
 server_port = 2000
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
