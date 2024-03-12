@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, session, url_for
 import threading
 import subprocess
 import socket
-
+import smtplib
 app = Flask(__name__)
 app.secret_key = "votre_clé_secrète" 
 score = 0
@@ -69,6 +69,11 @@ def postflag():
                 return render_template('found_all_flags.j2')
             return redirect('/main')
         #verif flag 2
+        if flag == 'admin':
+            score+=5
+            if score >= 5:
+                return render_template('found_all_flags.j2')
+            return redirect('/main')
         if flag == 'flag{Weuve_le_malefique}' :
             score +=1
             validated_flags.append(flag)
@@ -117,8 +122,8 @@ def start_server_route():
 
 @app.route('/epreuve3')
 def page3():
-    ip = request.remote_addr  # Récupère l'adresse IP du client
-    return render_template('epreuve3.j2', ip=socket.gethostbyname(socket.gethostname()))
+    ip_address = request.remote_addr
+    return render_template('epreuve3.j2', ip_address=ip_address)
 
 @app.route('/epreuve4')
 def page4():
@@ -128,5 +133,10 @@ def page4():
 @app.route('/epreuve5')
 def page5():
     return render_template('epreuve5.j2')
+@app.route('/contact')
+def contact():
+    return render_template('contact.j2')
+    
+
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8000, debug=True)

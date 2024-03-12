@@ -86,6 +86,7 @@ def handle_client(client_socket, addr):
 def start_server():
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     host= socket.gethostbyname(socket.gethostname())
+    
     server_socket.bind((host, 2000))
     print(host)
     server_socket.listen(5)

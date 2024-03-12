@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Custom Page</title>
+    <link rel="icon" href="static\img\padlock_icon-icons.com_70907.ico" type="image/x-icon">
+    <link rel="stylesheet" href="static/styles.css">
+    </head>
+<body>
+
+    <nav class="navbar animation-on-load">
+        <div class="nav-links">
+            <ul>
+                <li><form action="{{ url_for('index') }}" method="POST">
+                    <input type="submit" value="Accueil" class="link-text" name="home-form">
+                </form></li>               
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
+        <img src="static/img/button.png" alt="menu hamburger" class="menu-hamburger">
+    </nav>
+    <h1>Spy me</h1>
+    <h1>Contactez nous pour obtenir de l'aide juste ici:</h1>
+        <div class="container" onclick="showPopup(`
+                <h3>aidectf@gmail.com</h3>
+                <p>n'hésitez pas à envoyer un mail si vous vous retrouvez bloqué à une question, nous serons ravi de vous aider !</p></br>
+                <p>Si jamais la réponse prend trop de temps à arriver, n'hésitez pas à nous appeler en classe, nous serons également ravi de vous donner de l'aide</p>
+                <p>Bon courage pour le reste de l'epreuve !!</p>
+                `)">            
+            <h2>Adresse Mail</h2>
+        </div>
+    <script src="static/script.js"> </script>
+</body>
+</html>
